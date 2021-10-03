@@ -1,2 +1,2 @@
-[![Spotify](https://now-playing-codestackr.vercel.app/api/spotify-playing)](https://open.spotify.com/user/codestackr)
+[![Spotify](https://peterken-spotify.vercel.app/api/spotify)](https://open.spotify.com/user/svxu5xnbjn49tz6w5vbudiyva?si=e4b46059c7404c56)
 
