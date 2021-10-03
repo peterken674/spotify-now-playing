@@ -73,8 +73,8 @@ def barGen(barCount):
     return barCSS
 
 def loadImageB64(url):
-    resposne = requests.get(url)
-    return b64encode(resposne.content).decode("ascii")
+    response = requests.get(url)
+    return b64encode(response.content).decode("ascii")
 
 def makeSVG(data):
     barCount = 85
@@ -91,13 +91,19 @@ def makeSVG(data):
         item = data["item"]
 
     img = loadImageB64(item["album"]["images"][1]["url"])
-    artistName = item["artists"][0]["name"].replace("&", "&amp;")
+    artistsObjs = item["artists"]
+    artistsList = []
+    for artist in artistsObjs:
+        artistName = artist["name"].replace("&", "&amp;")
+        artistsList.append(artistName)
+
+    artists = artistsList.join(", ")
     songName = item["name"].replace("&", "&amp;")
 
     dataDict = {
         "content_bar": contentBar,
         "css_bar": barCSS,
-        "artist_name": artistName,
+        "artist_name": artists,
         "song_name": songName,
         "img": img,
     }
